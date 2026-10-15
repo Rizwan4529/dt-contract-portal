@@ -1,0 +1,255 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ------------------------------------------------------------------ */
+/*  Dar Al Taqwa — design tokens                                       */
+/*  Every color used in the app must come from a token below so that   */
+/*  light / dark themes stay in sync. Use them via Tailwind classes:   */
+/*  bg-primary, text-muted-foreground, bg-success-soft, etc.           */
+/* ------------------------------------------------------------------ */
+
+:root {
+  /* Surfaces */
+  --background: #f6f4ef;
+  --foreground: #1e1c19;
+  --card: #ffffff;
+  --card-foreground: #1e1c19;
+  --popover: #ffffff;
+  --popover-foreground: #1e1c19;
+
+  /* Brand — bronze gold */
+  --primary: #94753f;
+  --primary-foreground: #ffffff;
+  --brand-soft: #f3ebdc;
+  --brand-dark: #6e5629;
+
+  --secondary: #f1ece2;
+  --secondary-foreground: #5c4a2a;
+  --muted: #f3f0ea;
+  --muted-foreground: #7b7569;
+  --accent: #f6efe2;
+  --accent-foreground: #6e5629;
+  --destructive: #c2413b;
+
+  --border: #e7e2d8;
+  --input: #e2dcd0;
+  --ring: #b89b62;
+
+  /* Status tones (badges, stat tiles, alerts) */
+  --success: #2e9d5b;
+  --success-soft: #e5f4ea;
+  --warning: #b7791f;
+  --warning-soft: #fcf1d6;
+  --danger: #c2413b;
+  --danger-soft: #fbe7e5;
+  --info: #4a6fa5;
+  --info-soft: #e7eef8;
+  --neutral: #6b665c;
+  --neutral-soft: #f0ede7;
+
+  /* Charts */
+  --chart-1: #94753f;
+  --chart-2: #2e9d5b;
+  --chart-3: #b7791f;
+  --chart-4: #c2413b;
+  --chart-5: #4a6fa5;
+
+  /* Sidebar — charcoal */
+  --sidebar: #262521;
+  --sidebar-foreground: #d9d4c9;
+  --sidebar-primary: #94753f;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #33312c;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #34322d;
+  --sidebar-ring: #b89b62;
+
+  /* Typography */
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+
+  --radius: 0.625rem;
+}
+
+.dark {
+  --background: #161512;
+  --foreground: #ede9e1;
+  --card: #1f1d1a;
+  --card-foreground: #ede9e1;
+  --popover: #1f1d1a;
+  --popover-foreground: #ede9e1;
+
+  --primary: #b8975a;
+  --primary-foreground: #161512;
+  --brand-soft: #2e2719;
+  --brand-dark: #e6d3ae;
+
+  --secondary: #2a2824;
+  --secondary-foreground: #e6dcc8;
+  --muted: #26241f;
+  --muted-foreground: #9e978a;
+  --accent: #2c2924;
+  --accent-foreground: #e6d3ae;
+  --destructive: #e05a4f;
+
+  --border: #34312b;
+  --input: #3a372f;
+  --ring: #b8975a;
+
+  --success: #4cc27f;
+  --success-soft: #1b3326;
+  --warning: #e0a84a;
+  --warning-soft: #3a2e17;
+  --danger: #ee6b63;
+  --danger-soft: #3b1e1c;
+  --info: #7fa3d9;
+  --info-soft: #1e2a3b;
+  --neutral: #b3ada0;
+  --neutral-soft: #2a2824;
+
+  --chart-1: #b8975a;
+  --chart-2: #4cc27f;
+  --chart-3: #e0a84a;
+  --chart-4: #ee6b63;
+  --chart-5: #7fa3d9;
+
+  --sidebar: #11100e;
+  --sidebar-foreground: #cfc9bc;
+  --sidebar-primary: #a88a50;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #24221e;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #26241f;
+  --sidebar-ring: #b8975a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-dark: var(--brand-dark);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-neutral: var(--neutral);
+  --color-neutral-soft: var(--neutral-soft);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-card: 0 1px 2px 0 rgb(30 28 25 / 0.04), 0 1px 3px 0 rgb(30 28 25 / 0.04);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    scrollbar-width: thin;
+  }
+
+  html {
+    @apply font-sans antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-border;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+}
+
+/* Date picker (react-day-picker) themed with app tokens */
+.rdp-root {
+  --rdp-accent-color: var(--primary);
+  --rdp-accent-background-color: var(--brand-soft);
+  --rdp-today-color: var(--primary);
+  --rdp-day-height: 36px;
+  --rdp-day-width: 36px;
+  --rdp-day_button-height: 34px;
+  --rdp-day_button-width: 34px;
+  --rdp-day_button-border-radius: calc(var(--radius) - 2px);
+  --rdp-selected-border: 2px solid var(--primary);
+  --rdp-nav-height: 2.25rem;
+  font-size: 0.875rem;
+}
+
+.rdp-root .rdp-selected .rdp-day_button {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.rdp-root .rdp-dropdown_root select {
+  background-color: var(--popover);
+  color: var(--popover-foreground);
+}
+
+/* Global page loader — pulsing brand ring */
+@keyframes brand-pulse {
+  0%,
+  100% {
+    transform: scale(0.92);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.brand-pulse {
+  animation: brand-pulse 1.4s ease-in-out infinite;
+}
